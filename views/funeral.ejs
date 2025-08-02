@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content.funeral %> - <%= content.title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/"><%= content.title %></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/?lang=<%= currentLang %>"><%= content.biography %></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/funeral?lang=<%= currentLang %>"><%= content.funeral %></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/photos?lang=<%= currentLang %>"><%= content.photos %></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/?lang=<%= currentLang %>#condolences"><%= content.condolences %></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <%= content.language %>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/funeral?lang=english">English</a></li>
+                            <li><a class="dropdown-item" href="/funeral?lang=malayalam">മലയാളം</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hero-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 mx-auto text-center">
+                        <h1 class="display-4 mb-2"><%= content.funeral %></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4"><%= content.serviceInfo %></h3>
+                            
+                            <div class="row mb-3">
+                                <div class="col-sm-3"><strong><%= content.venue %>:</strong></div>
+                                <div class="col-sm-9"><%= obituary.funeral.venue %></div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-sm-3"><strong><%= content.address %>:</strong></div>
+                                <div class="col-sm-9"><%= obituary.funeral.address %></div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-sm-3"><strong>Date:</strong></div>
+                                <div class="col-sm-9"><%= new Date(obituary.funeral.date).toLocaleDateString() %></div>
+                            </div>
+                            
+                            <div class="row mb-4">
+                                <div class="col-sm-3"><strong>Time:</strong></div>
+                                <div class="col-sm-9"><%= obituary.funeral.time %></div>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-2">
+                                <% if (obituary.funeral.googleMapsUrl) { %>
+                                    <a href="<%= obituary.funeral.googleMapsUrl %>" target="_blank" class="btn btn-primary">
+                                        <%= content.directions %>
+                                    </a>
+                                <% } %>
+                                
+                                <% if (obituary.funeral.liveStreamUrl) { %>
+                                    <a href="<%= obituary.funeral.liveStreamUrl %>" target="_blank" class="btn btn-danger">
+                                        <%= content.liveStream %>
+                                    </a>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><%= content.location %></h4>
+                            <p><%= obituary.funeral.address %></p>
+                            <% if (obituary.funeral.googleMapsUrl) { %>
+                                <div class="map-container">
+                                    <iframe 
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1sen!2s!4v1234567890"
+                                        width="100%" 
+                                        height="300" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy">
+                                    </iframe>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <% if (obituary.funeral.liveStreamUrl) { %>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= content.liveStream %></h5>
+                            <p class="card-text">Join us virtually for the service</p>
+                            <div class="live-stream">
+                                <iframe 
+                                    src="<%= obituary.funeral.liveStreamUrl.replace('watch?v=', 'embed/') %>"
+                                    frameborder="0" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= content.additionalInfo %></h5>
+                            <p class="card-text">
+                                <%= content.celebrateLife %> <%= obituary.name %> <%= content.honorMemory %>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    <%= content.contactFamily %>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <h5 class="memorial-footer-name mb-2"><%= obituary.name %></h5>
+            <p class="memorial-footer-dates mb-3">
+                <%= new Date(obituary.dateOfBirth).toLocaleDateString() %> - 
+                <%= new Date(obituary.dateOfPassing).toLocaleDateString() %>
+            </p>
+            <p class="mb-0"><%= obituary.name %>'s Family</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

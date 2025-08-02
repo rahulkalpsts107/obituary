@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Memorial Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body style="background-color: var(--cream-bg);">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <div class="card" style="border: 3px solid var(--gold-accent); padding: 3rem;">
+                    <h1 class="display-4 text-muted mb-4" style="color: var(--text-dark) !important;">Oops! / ക്ഷമിക്കണം!</h1>
+                    
+                    <h2 class="mb-3" style="color: var(--text-medium); font-family: 'Playfair Display', serif;">
+                        Something went wrong<br>
+                        <span style="font-size: 1.2rem; font-style: italic;">എന്തോ തെറ്റ് സംഭവിച്ചു</span>
+                    </h2>
+                    
+                    <p class="lead mb-4" style="color: var(--text-dark);">
+                        <strong>English:</strong> <%= message || 'An unexpected error occurred' %><br><br>
+                        <strong>മലയാളം:</strong> അപ്രതീക്ഷിത പിശക് സംഭവിച്ചു. ദയവായി വീണ്ടും ശ്രമിക്കുക.
+                    </p>
+                    
+                    <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+                        <a href="/" class="btn btn-primary">Return Home / ഹോമിലേക്ക് മടങ്ങുക</a>
+                        <a href="javascript:history.back()" class="btn" style="background: var(--text-medium); color: white;">Go Back / തിരികെ പോകുക</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
