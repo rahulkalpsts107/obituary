@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content.title %></title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= process.env.WEBSITE_URL || 'http://localhost:3000' %>">
+    <meta property="og:title" content="<%= content.inLovingMemoryOf %> <%= obituary.name %> | സ്നേഹപൂർവ്വം ഓർത്ത്">
+    <meta property="og:description" content="Memorial website for <%= obituary.name %> (<%= new Date(obituary.dateOfBirth).toLocaleDateString() %> - <%= new Date(obituary.dateOfPassing).toLocaleDateString() %>). Share your condolences and cherished memories. | <%= obituary.name %> ന്റെ സ്മാരക വെബ്സൈറ്റ്. നിങ്ങളുടെ അനുശോചനങ്ങളും പ്രിയപ്പെട്ട ഓർമ്മകളും പങ്കിടുക.">
+    <meta property="og:image" content="https://res.cloudinary.com/dl4p1qeva/image/upload/v1754085891/default-avatar-photo-placeholder-profile-picture-vector_wppcnd.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="<%= process.env.WEBSITE_URL || 'http://localhost:3000' %>">
+    <meta property="twitter:title" content="<%= content.inLovingMemoryOf %> <%= obituary.name %> | സ്നേഹപൂർവ്വം ഓർത്ത്">
+    <meta property="twitter:description" content="Memorial website for <%= obituary.name %> (<%= new Date(obituary.dateOfBirth).toLocaleDateString() %> - <%= new Date(obituary.dateOfPassing).toLocaleDateString() %>). Share your condolences and cherished memories. | <%= obituary.name %> ന്റെ സ്മാരക വെബ്സൈറ്റ്. നിങ്ങളുടെ അനുശോചനങ്ങളും പ്രിയപ്പെട്ട ഓർമ്മകളും പങ്കിടുക.">
+    <meta property="twitter:image" content="https://res.cloudinary.com/dl4p1qeva/image/upload/v1754085891/default-avatar-photo-placeholder-profile-picture-vector_wppcnd.jpg">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="description" content="Memorial website for <%= obituary.name %> (<%= new Date(obituary.dateOfBirth).toLocaleDateString() %> - <%= new Date(obituary.dateOfPassing).toLocaleDateString() %>). Share your condolences and cherished memories. | <%= obituary.name %> ന്റെ സ്മാരക വെബ്സൈറ്റ്. നിങ്ങളുടെ അനുശോചനങ്ങളും പ്രിയപ്പെട്ട ഓർമ്മകളും പങ്കിടുക.">
+    <meta name="keywords" content="memorial, obituary, <%= obituary.name %>, condolences, remembrance, സ്മാരകം, അനുശോചനം, ഓർമ്മ">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>

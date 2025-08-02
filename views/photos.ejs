@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content.photos %> - <%= content.title %></title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= process.env.WEBSITE_URL || 'http://localhost:3000' %>/photos">
+    <meta property="og:title" content="<%= content.familyPhotoGallery %> - <%= obituary.name %> | കുടുംബ ഫോട്ടോ ഗാലറി">
+    <meta property="og:description" content="View cherished family photos and memories of <%= obituary.name %> (<%= new Date(obituary.dateOfBirth).toLocaleDateString() %> - <%= new Date(obituary.dateOfPassing).toLocaleDateString() %>). | <%= obituary.name %> ന്റെ പ്രിയപ്പെട്ട കുടുംബ ഫോട്ടോകളും ഓർമ്മകളും കാണുക.">
+    <meta property="og:image" content="https://res.cloudinary.com/dl4p1qeva/image/upload/v1754085891/default-avatar-photo-placeholder-profile-picture-vector_wppcnd.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="<%= process.env.WEBSITE_URL || 'http://localhost:3000' %>/photos">
+    <meta property="twitter:title" content="<%= content.familyPhotoGallery %> - <%= obituary.name %> | കുടുംബ ഫോട്ടോ ഗാലറി">
+    <meta property="twitter:description" content="View cherished family photos and memories of <%= obituary.name %> (<%= new Date(obituary.dateOfBirth).toLocaleDateString() %> - <%= new Date(obituary.dateOfPassing).toLocaleDateString() %>). | <%= obituary.name %> ന്റെ പ്രിയപ്പെട്ട കുടുംബ ഫോട്ടോകളും ഓർമ്മകളും കാണുക.">
+    <meta property="twitter:image" content="https://res.cloudinary.com/dl4p1qeva/image/upload/v1754085891/default-avatar-photo-placeholder-profile-picture-vector_wppcnd.jpg">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="description" content="View cherished family photos and memories of <%= obituary.name %> (<%= new Date(obituary.dateOfBirth).toLocaleDateString() %> - <%= new Date(obituary.dateOfPassing).toLocaleDateString() %>). | <%= obituary.name %> ന്റെ പ്രിയപ്പെട്ട കുടുംബ ഫോട്ടോകളും ഓർമ്മകളും കാണുക.">
+    <meta name="keywords" content="photos, gallery, memorial, <%= obituary.name %>, memories, family photos, ഫോട്ടോകൾ, ഗാലറി, സ്മാരകം, ഓർമ്മകൾ, കുടുംബ ഫോട്ടോകൾ">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -25,8 +46,8 @@
                             <%= content.language %>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/photos?lang=english">English</a></li>
                             <li><a class="dropdown-item" href="/photos?lang=malayalam">മലയാളം</a></li>
+                            <li><a class="dropdown-item" href="/photos?lang=english">English</a></li>
                         </ul>
                     </li>
                 </ul>
