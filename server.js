@@ -8,7 +8,20 @@ Sentry.init({
   environment: process.env.NODE_ENV || 'development',
   // Performance Monitoring
   tracesSampleRate: 1.0,
+  // Capture more data
+  beforeSend(event) {
+    console.log('Sentry event captured:', event.event_id);
+    return event;
+  },
+  beforeSendTransaction(event) {
+    console.log('Sentry transaction captured:', event.event_id);
+    return event;
+  },
+  debug: true, // Enable debug mode for troubleshooting
 });
+
+// Log Sentry initialization
+console.log('Sentry initialized with DSN:', process.env.SENTRY_DSN ? 'Configured' : 'Missing');
 
 const express = require('express');
 const mongoose = require('mongoose');
