@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content.funeral %> - <%= content.title %></title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= process.env.WEBSITE_URL || 'http://localhost:3000' %>/funeral">
+    <meta property="og:title" content="<%= content.funeral %> - <%= obituary.name %> | ശവസംസ്കാര വിവരങ്ങൾ">
+    <meta property="og:description" content="Funeral service details for <%= obituary.name %> (<%= new Date(obituary.dateOfBirth).toLocaleDateString() %> - <%= new Date(obituary.dateOfPassing).toLocaleDateString() %>). Join us in celebrating their life and legacy. | <%= obituary.name %> ന്റെ ശവസംസ്കാര വിവരങ്ങൾ. അവരുടെ ജീവിതവും പാരമ്പര്യവും ആഘോഷിക്കാൻ ഞങ്ങളോടൊപ്പം ചേരുക.">
+    <meta property="og:image" content="https://res.cloudinary.com/dl4p1qeva/image/upload/v1754085891/default-avatar-photo-placeholder-profile-picture-vector_wppcnd.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="<%= process.env.WEBSITE_URL || 'http://localhost:3000' %>/funeral">
+    <meta property="twitter:title" content="<%= content.funeral %> - <%= obituary.name %> | ശവസംസ്കാര വിവരങ്ങൾ">
+    <meta property="twitter:description" content="Funeral service details for <%= obituary.name %> (<%= new Date(obituary.dateOfBirth).toLocaleDateString() %> - <%= new Date(obituary.dateOfPassing).toLocaleDateString() %>). Join us in celebrating their life and legacy. | <%= obituary.name %> ന്റെ ശവസംസ്കാര വിവരങ്ങൾ. അവരുടെ ജീവിതവും പാരമ്പര്യവും ആഘോഷിക്കാൻ ഞങ്ങളോടൊപ്പം ചേരുക.">
+    <meta property="twitter:image" content="https://res.cloudinary.com/dl4p1qeva/image/upload/v1754085891/default-avatar-photo-placeholder-profile-picture-vector_wppcnd.jpg">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="description" content="Funeral service details for <%= obituary.name %> (<%= new Date(obituary.dateOfBirth).toLocaleDateString() %> - <%= new Date(obituary.dateOfPassing).toLocaleDateString() %>). Join us in celebrating their life and legacy. | <%= obituary.name %> ന്റെ ശവസംസ്കാര വിവരങ്ങൾ. അവരുടെ ജീവിതവും പാരമ്പര്യവും ആഘോഷിക്കാൻ ഞങ്ങളോടൊപ്പം ചേരുക.">
+    <meta name="keywords" content="funeral, service, memorial, <%= obituary.name %>, ceremony, celebration of life, ശവസംസ്കാരം, സേവനം, സ്മാരകം, ചടങ്ങ്, ജീവിത ആഘോഷം">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -25,8 +46,8 @@
                             <%= content.language %>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/funeral?lang=english">English</a></li>
                             <li><a class="dropdown-item" href="/funeral?lang=malayalam">മലയാളം</a></li>
+                            <li><a class="dropdown-item" href="/funeral?lang=english">English</a></li>
                         </ul>
                     </li>
                 </ul>

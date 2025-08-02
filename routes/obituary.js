@@ -79,7 +79,7 @@ router.get('/', async (req, res) => {
     
     console.log(`Final result: ${condolences.length} condolences for display`);
     
-    const language = req.query.lang || 'english';
+    const language = req.query.lang || 'malayalam';
     const content = getContent(language);
     
     // Create localized obituary object
@@ -107,7 +107,7 @@ router.get('/', async (req, res) => {
 router.get('/funeral', async (req, res) => {
   try {
     const obituary = await Obituary.findOne({ isActive: true });
-    const language = req.query.lang || 'english';
+    const language = req.query.lang || 'malayalam';
     const content = getContent(language);
     
     const localizedObituary = {
@@ -182,7 +182,7 @@ router.get('/debug-condolences', async (req, res) => {
 router.get('/photos', async (req, res) => {
   try {
     const obituary = await Obituary.findOne({ isActive: true });
-    const language = req.query.lang || 'english';
+    const language = req.query.lang || 'malayalam';
     const content = getContent(language);
     
     // Load ALL photos for slideshow (no pagination)
